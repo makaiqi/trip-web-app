@@ -1,0 +1,718 @@
+﻿@charset "UTF-8";
+
+//*******变量*******//
+//文字
+@ms: "Microsoft YaHei";   //微软雅黑
+@song: SimSun;   //宋体
+@arial: Arial;   //Arial
+@tahoma: Tahoma;   //Tahoma
+
+//自适应
+@r: 1/200rem;
+
+//*******函数*******//
+//文字
+.fs(@fs:0){
+    font-size: if((ispixel(@fs)),@fs,@fs*@r);
+}
+.fw(@fw:bold){
+    font-weight: @fw;
+}
+.fst(@fStyle:italic){
+    font-style: @fStyle;
+}
+.ff(@ff:@ms){
+    font-family: @ff;
+}
+.c(@color:#fff){
+    color: @color;
+}
+.tl(){
+    text-align: left;
+}
+.tr(){
+    text-align: right;
+}
+.tc(){
+    text-align: center;
+}
+.tj(){
+    text-align: justify;
+}
+.va(@pos:middle){
+    vertical-align: @pos;
+}
+.vert(@pos:middle){
+    vertical-align: @pos;
+}
+.lh(@h:1){
+    line-height: @h;
+}
+.ti(@len: -9999px){
+    text-indent: @len;
+}
+.ms(){
+    font-family: @ms;
+}
+.song(){
+    font-family: @song;
+}
+.arial(){
+    font-family: @arial;
+}
+.tahoma(){
+    font-family: @tahoma;
+}
+
+/***** 图片 *****/
+.obj(@fit:cover){
+    object-fit: @fit;
+}
+
+/***** 浮动 *****/
+.cb(){
+    zoom: 1;
+    &:after{
+        content: "";
+        display: block;
+        overflow: hidden;
+        clear: both;
+    }
+}
+.clearboth(){
+    zoom: 1;
+    &:after{
+        content: "";
+        display: block;
+        overflow: hidden;
+        clear: both;
+    }
+}
+.fl(){
+    float: left;
+}
+.fr(){
+    float: right;
+}
+.fn(){
+    float: none;
+}
+
+/***** 文字溢出省略 *****/
+.m-el(@line:2){
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: @line; overflow: hidden;
+}
+.ellipsis(){
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/***** display *****/
+.bk(){
+    display: block;
+}
+.il(){
+    display: inline;
+}
+.ib(){
+    display: inline-block;
+}
+.none(){
+    display: none;
+}
+
+/***** flexbox *****/
+.flex(){
+  display: flex;
+}
+
+.fd(@dir: column){
+  flex-direction: @dir;
+}
+
+.fd-column(){
+  flex-direction: column;
+}
+
+.fd-row(){
+  flex-direction: row;
+}
+
+.jc(@pos:center){
+  justify-content: @pos;
+}
+.jc-center(){
+  justify-content: center;
+}
+.jc-start(){
+  justify-content: flex-start;
+}
+.jc-end(){
+  justify-content: flex-end;
+}
+.jc-around(){
+  justify-content: space-around;
+}
+.jc-between(){
+  justify-content: space-between;
+}
+
+.ai(@pos:center){
+  align-items: @pos;
+}
+.ai-center(){
+  align-items: center;
+}
+.ai-start(){
+  align-items: flex-start;
+}
+.ai-end(){
+  align-items: flex-end;
+}
+
+.fx(@num:1){
+  flex: @num;
+}
+
+/***** opacity *****/
+.opac(@val:0){
+    opacity: @val;
+}
+.v(@val:hidden){
+    visibility: @val;
+}
+
+/***** overflow *****/
+.of(@val:hidden){
+    overflow: @val;
+}
+.ofs(){
+    .of(auto);
+    -webkit-overflow-scrolling : touch;
+}
+
+/***** 定位 *****/
+.abs(@left: 0,@top: 0){
+    position: absolute;
+    top: if((ispixel(@top)) or (ispercentage(@top)),@top,@top*@r);
+    left: if((ispixel(@left)) or (ispercentage(@left)),@left,@left*@r);
+}
+.absR(@right: 0,@top: 0){
+    position: absolute;
+    top: if((ispixel(@top)) or (ispercentage(@top)),@top,@top*@r);
+    right: if((ispixel(@right)) or (ispercentage(@right)),@right,@right*@r);
+}
+.absB(@left: 0,@bottom: 0){
+    position: absolute;
+    bottom: if((ispixel(@bottom)) or (ispercentage(@bottom)),@bottom,@bottom*@r);
+    left: if((ispixel(@left)) or (ispercentage(@left)),@left,@left*@r);
+}
+.absRB(@right: 0,@bottom: 0){
+    position: absolute;
+    bottom: if((ispixel(@bottom)) or (ispercentage(@bottom)),@bottom,@bottom*@r);
+    right: if((ispixel(@right)) or (ispercentage(@right)),@right,@right*@r);
+}
+.fixed(@left: 0,@top: 0){
+    position: fixed;
+    top: if((ispixel(@top)) or (ispercentage(@top)),@top,@top*@r);
+    left: if((ispixel(@left)) or (ispercentage(@left)),@left,@left*@r);
+}
+.fixedR(@right: 0,@top: 0){
+    position: fixed;
+    top: if((ispixel(@top)) or (ispercentage(@top)),@top,@top*@r);
+    right: if((ispixel(@right)) or (ispercentage(@right)),@right,@right*@r);
+}
+.fixedB(@left: 0,@bottom: 0){
+    position: fixed;
+    bottom: if((ispixel(@bottom)) or (ispercentage(@bottom)),@bottom,@bottom*@r);
+    left: if((ispixel(@left)) or (ispercentage(@left)),@left,@left*@r);
+}
+.fixedRB(@right: 0,@bottom: 0){
+    position: fixed;
+    bottom: if((ispixel(@bottom)) or (ispercentage(@bottom)),@bottom,@bottom*@r);
+    right: if((ispixel(@right)) or (ispercentage(@right)),@right,@right*@r);
+}
+.rel(){
+    position: relative;
+}
+.static(){
+    position: static;
+}
+.zi(@num: 0){
+  z-index: @num;
+}
+.zIndex(@num: 0){
+    z-index: @num;
+}
+
+/***** 居中定位 *****/
+.centerT(@top:0){
+    position: absolute;
+    top: if((ispixel(@top)) or (ispercentage(@top)),@top,@top*@r);
+    right: 0;
+    left: 0;
+    .m(auto);
+}
+.centerB(@bottom:0) {
+    position: absolute;
+    bottom: if((ispixel(@bottom)) or (ispercentage(@bottom)),@bottom,@bottom*@r);
+    right: 0;
+    left: 0;
+    .m(auto);
+}
+.centerL(@left:0){
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: if((ispixel(@left)) or (ispercentage(@left)),@left,@left*@r);
+    .m(auto);
+}
+.centerR(@right:0){
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: if((ispixel(@right)) or (ispercentage(@right)),@right,@right*@r);
+    .m(auto);
+}
+.center(@len: 0){
+    position: absolute;
+    top: if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r);
+    right: if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r);
+    left: if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r);
+    bottom: if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r);
+    .m(auto);
+}
+.fcenter(){
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    .m(auto);
+}
+.fcenterT(@top:0){
+  position: fixed;
+  top: if((ispixel(@top)) or (ispercentage(@top)),@top,@top*@r);
+  right: 0;
+  left: 0;
+  .m(auto);
+}
+
+/***** CSS3 *****/
+.transition(@time: .3s, @fun: ease, @name: all){
+    -webkit-transition: @name @time @fun;
+    transition: @name @time @fun;
+}
+.tdelay(@time:0s){
+    -webkit-transition-delay: @time;
+    transition-delay: @time;
+}
+.origin(@x,@y){
+    -webkit-transform-origin: @arguments;
+    transform-origin: @arguments;
+}
+.translate(@len:0){
+    -webkit-transform: translate(if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r));
+    transform: translate(if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r));
+}
+.translateY(@len:0){
+    -webkit-transform: translateY(if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r));
+    transform: translateY(if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r));
+}
+.translateZ(@len:0){
+    -webkit-transform: translateZ(if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r));
+    transform: translateZ(if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r));
+}
+.translate(@x,@y){
+    -webkit-transform: translate(if((ispixel(@x)) or (ispercentage(@x)),@x,@x*@r),if((ispixel(@y)) or (ispercentage(@y)),@y,@y*@r));
+    transform: translate(if((ispixel(@x)) or (ispercentage(@x)),@x,@x*@r),if((ispixel(@y)) or (ispercentage(@y)),@y,@y*@r));
+}
+.scale(@times:0){
+    -webkit-transform: scale(@times);
+    transform: scale(@times);
+}
+.rotate(@deg:0deg){
+    -webkit-transform: rotate(@deg);
+    transform: rotate(@deg);
+}
+.rotateX(@deg:0deg){
+  -webkit-transform: rotateX(@deg);
+  transform: rotateX(@deg);
+}
+.rotateY(@deg:0deg){
+    -webkit-transform: rotateY(@deg);
+    transform: rotateY(@deg);
+}
+.anim(@name,@time,@timing:ease,@count:infinite){
+    -webkit-animation: @arguments;
+    animation: @arguments;
+}
+.adelay(@time:0s){
+    -webkit-animation-delay: @time;
+    animation-delay: @time;
+}
+.skew(@deg){
+    -webkit-transform: skew(@deg);
+    transform: skew(@deg);
+}
+.skew(@xdeg,@ydeg){
+    -webkit-transform: skew(@xdeg,@ydeg);
+    transform: skew(@xdeg,@ydeg);
+}
+.skewY(@ydeg){
+    -webkit-transform: skewY(@ydeg);
+    transform: skewY(@ydeg);
+}
+
+/***** 边框 *****/
+.b(@len:0,@color:#eee){
+    border: if((ispixel(@len)),@len,@len*@r) solid @color;
+}
+.bl(@len:0,@color:#eee){
+    border-left: if((ispixel(@len)),@len,@len*@r) solid @color;
+}
+.br(@len:0,@color:#eee){
+    border-right: if((ispixel(@len)),@len,@len*@r) solid @color;
+}
+.bt(@len:0,@color:#eee){
+    border-top: if((ispixel(@len)),@len,@len*@r) solid @color;
+}
+.bb(@len:0,@color:#eee){
+    border-bottom: if((ispixel(@len)),@len,@len*@r) solid @color;
+}
+.brs(@len:100%){  //边角弧度
+    border-radius: if((ispixel(@len)) or (ispercentage(@len)),@len,@len*@r);
+}
+.brs(@lt,@rt,@rb,@lb){  //边角弧度
+    border-radius: @arguments;
+}
+.bxs(){
+    box-sizing: border-box;
+}
+
+/***** 阴影 *****/
+.bShadow(@len,@color){
+    box-shadow: 0 0 if((ispixel(@len)),@len,@len*@r) @color;
+}
+.bsd(@len,@color){
+    box-shadow: 0 0 if((ispixel(@len)),@len,@len*@r) @color;
+}
+
+/***** 宽高 *****/
+.w(@w:100%){
+    width: if((ispixel(@w)) or (ispercentage(@w)),@w,@w*@r);
+}
+.h(@h:100%){
+    height: if((ispixel(@h)) or (ispercentage(@h)),@h,@h*@r);
+}
+.wh(@w:100%){
+    width: if((ispixel(@w)) or (ispercentage(@w)),@w,@w*@r);
+    height: if((ispixel(@w)) or (ispercentage(@w)),@w,@w*@r);
+}
+.wh(@w,@h){
+    width: if((ispixel(@w)) or (ispercentage(@w)),@w,@w*@r);
+    height: if((ispixel(@h)) or (ispercentage(@h)),@h,@h*@r);
+}
+
+/***** 内外边距 *****/
+// 判断参数单位是否为px 或 % 或 关键字（auto）
+.m(@m:0) when ((ispixel(@m)) or (ispercentage(@m)) or (iskeyword(@m))){
+    margin: @m;
+}
+.m(@m:0) when not ((ispixel(@m)) or (ispercentage(@m)) or (iskeyword(@m))){
+    margin: @m*@r;
+}
+
+.m(@m1,@m2) when ((ispixel(@m2)) or (ispercentage(@m2)) or (iskeyword(@m2))){
+    margin: if((ispixel(@m1)) or (ispercentage(@m1)),@m1,@m1*@r) @m2;
+}
+.m(@m1,@m2) when not ((ispixel(@m2)) or (ispercentage(@m2)) or (iskeyword(@m2))){
+    margin: if((ispixel(@m1)) or (ispercentage(@m1)),@m1,@m1*@r) @m2*@r;
+}
+
+.m(@m1,@m2,@m3) when ((ispixel(@m2)) or (ispercentage(@m2)) or (iskeyword(@m2))){
+    margin: if((ispixel(@m1)) or (ispercentage(@m1)),@m1,@m1*@r)
+    @m2
+    if((ispixel(@m3)) or (ispercentage(@m3)),@m3,@m3*@r);
+}
+.m(@m1,@m2,@m3) when not ((ispixel(@m2)) or (ispercentage(@m2)) or (iskeyword(@m2))){
+    margin: if((ispixel(@m1)) or (ispercentage(@m1)),@m1,@m1*@r)
+    @m2*@r
+    if((ispixel(@m3)) or (ispercentage(@m3)),@m3,@m3*@r);
+}
+
+.m(@m1,@m2,@m3,@m4){
+    margin: if((ispixel(@m1)) or (ispercentage(@m1)),@m1,@m1*@r)
+    if((ispixel(@m2)) or (ispercentage(@m2)),@m2,@m2*@r)
+    if((ispixel(@m3)) or (ispercentage(@m3)),@m3,@m3*@r)
+    if((ispixel(@m4)) or (ispercentage(@m4)),@m4,@m4*@r);
+}
+
+.ml(@ml:0){
+    margin-left: if((ispixel(@ml)) or (ispercentage(@ml)),@ml,@ml*@r);
+}
+.mr(@mr:0){
+    margin-right: if((ispixel(@mr)) or (ispercentage(@mr)),@mr,@mr*@r);
+}
+.mt(@mt:0){
+    margin-top: if((ispixel(@mt)) or (ispercentage(@mt)),@mt,@mt*@r);
+}
+.mb(@mb:0){
+    margin-bottom: if((ispixel(@mb)) or (ispercentage(@mb)),@mb,@mb*@r);
+}
+
+.p(@p:0) when ((ispixel(@p)) or (ispercentage(@p)) or (iskeyword(@p))){
+    padding: @p;
+}
+.p(@p:0) when not ((ispixel(@p)) or (ispercentage(@p)) or (iskeyword(@p))){
+    padding: @p*@r;
+}
+
+.p(@p1,@p2) when ((ispixel(@p2)) or (ispercentage(@p2)) or (iskeyword(@p2))){
+    padding: if((ispixel(@p1)) or (ispercentage(@p1)),@p1,@p1*@r) @p2;
+}
+.p(@p1,@p2) when not ((ispixel(@p2)) or (ispercentage(@p2)) or (iskeyword(@p2))){
+    padding: if((ispixel(@p1)) or (ispercentage(@p1)),@p1,@p1*@r) @p2*@r;
+}
+
+.p(@p1,@p2,@p3) when ((ispixel(@p2)) or (ispercentage(@p2)) or (iskeyword(@p2))){
+    padding: if((ispixel(@p1)) or (ispercentage(@p1)),@p1,@p1*@r)
+    @p2
+    if((ispixel(@p3)) or (ispercentage(@p3)),@p3,@p3*@r);
+}
+.p(@p1,@p2,@p3) when not ((ispixel(@p2)) or (ispercentage(@p2)) or (iskeyword(@p2))){
+    padding: if((ispixel(@p1)) or (ispercentage(@p1)),@p1,@p1*@r)
+        @p2*@r
+    if((ispixel(@p3)) or (ispercentage(@p3)),@p3,@p3*@r);
+}
+
+.p(@p1,@p2,@p3,@p4){
+    padding: if((ispixel(@p1)) or (ispercentage(@p1)),@p1,@p1*@r)
+    if((ispixel(@p2)) or (ispercentage(@p2)),@p2,@p2*@r)
+    if((ispixel(@p3)) or (ispercentage(@p3)),@p3,@p3*@r)
+    if((ispixel(@p4)) or (ispercentage(@p4)),@p4,@p4*@r);
+}
+.pl(@pl:0){
+    padding-left: if((ispixel(@pl)) or (ispercentage(@pl)),@pl,@pl*@r);
+}
+.pr(@pr:0){
+    padding-right: if((ispixel(@pr)) or (ispercentage(@pr)),@pr,@pr*@r);
+}
+.pt(@pt:0){
+    padding-top: if((ispixel(@pt)) or (ispercentage(@pt)),@pt,@pt*@r);
+}
+.pb(@pb:0){
+    padding-bottom: if((ispixel(@pb)) or (ispercentage(@pb)),@pb,@pb*@r);
+}
+
+/***** 背景 *****/
+
+/////// PNG
+.bg(@name){
+    background: url('../../assets/images/@{name}.png') no-repeat center;
+    .bgs();
+}
+
+.bg(@name,@l) when ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+    background: url('../../assets/images/@{name}.png') no-repeat @l center;
+    .bgs();
+}
+.bg(@name,@l) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+    background: url('../../assets/images/@{name}.png') no-repeat @l*@r center;
+    .bgs();
+}
+
+// 均非纯数字参数
+.bg(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+    background: url('../../assets/images/@{name}.png') no-repeat @l @t;
+    .bgs();
+}
+// 一纯一单参数
+.bg(@name,@l,@t) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t))){
+    background: url('../../assets/images/@{name}.png') no-repeat @l*@r @t;
+    .bgs();
+}
+// 一单一纯参数
+.bg(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and not ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+    background: url('../../assets/images/@{name}.png') no-repeat @l @t*@r;
+    .bgs();
+}
+
+    .bgx(@name){
+        background: url('../../assets/images/@{name}.png') repeat-x center;
+        .bgs();
+    }
+
+    .bgx(@name,@l) when ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+        background: url('../../assets/images/@{name}.png') repeat-x @l center;
+        .bgs();
+    }
+    .bgx(@name,@l) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+        background: url('../../assets/images/@{name}.png') repeat-x @l*@r center;
+        .bgs();
+    }
+
+    // 均非纯数字参数
+    .bgx(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+        background: url('../../assets/images/@{name}.png') repeat-x @l @t;
+        .bgs();
+    }
+    // 一纯一单参数
+    .bgx(@name,@l,@t) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t))){
+        background: url('../../assets/images/@{name}.png') repeat-x @l*@r @t;
+        .bgs();
+    }
+    // 一单一纯参数
+    .bgx(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and not ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+        background: url('../../assets/images/@{name}.png') repeat-x @l @t*@r;
+        .bgs();
+    }
+
+        .bgy(@name){
+            background: url('../../assets/images/@{name}.png') repeat-y center;
+            .bgs();
+        }
+
+        .bgy(@name,@l) when ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+            background: url('../../assets/images/@{name}.png') repeat-y @l center;
+            .bgs();
+        }
+        .bgy(@name,@l) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+            background: url('../../assets/images/@{name}.png') repeat-y @l*@r center;
+            .bgs();
+        }
+
+        // 均非纯数字参数
+        .bgy(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+            background: url('../../assets/images/@{name}.png') repeat-y @l @t;
+            .bgs();
+        }
+        // 一纯一单参数
+        .bgy(@name,@l,@t) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t))){
+            background: url('../../assets/images/@{name}.png') repeat-y @l*@r @t;
+            .bgs();
+        }
+        // 一单一纯参数
+        .bgy(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and not ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+            background: url('../../assets/images/@{name}.png') repeat-y @l @t*@r;
+            .bgs();
+        }
+
+
+/////// JPEG
+.bgj(@name){
+    background: url('../../assets/images/@{name}.jpg') no-repeat center;
+    .bgs();
+}
+
+.bgj(@name,@l) when ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+    background: url('../../assets/images/@{name}.jpg') no-repeat @l center;
+    .bgs();
+}
+.bgj(@name,@l) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+    background: url('../../assets/images/@{name}.jpg') no-repeat @l*@r center;
+    .bgs();
+}
+
+// 均非纯数字参数
+.bgj(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+    background: url('../../assets/images/@{name}.jpg') no-repeat @l @t;
+    .bgs();
+}
+// 一纯一单参数
+.bgj(@name,@l,@t) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t))){
+    background: url('../../assets/images/@{name}.jpg') no-repeat @l*@r @t;
+    .bgs();
+}
+// 一单一纯参数
+.bgj(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and not ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+    background: url('../../assets/images/@{name}.jpg') no-repeat @l @t*@r;
+    .bgs();
+}
+
+    .bgjx(@name){
+        background: url('../../assets/images/@{name}.jpg') repeat-x center;
+        .bgs();
+    }
+
+    .bgjx(@name,@l) when ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+        background: url('../../assets/images/@{name}.jpg') repeat-x @l center;
+        .bgs();
+    }
+    .bgjx(@name,@l) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+        background: url('../../assets/images/@{name}.jpg') repeat-x @l*@r center;
+        .bgs();
+    }
+
+    // 均非纯数字参数
+    .bgjx(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+        background: url('../../assets/images/@{name}.jpg') repeat-x @l @t;
+        .bgs();
+    }
+    // 一纯一单参数
+    .bgjx(@name,@l,@t) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t))){
+        background: url('../../assets/images/@{name}.jpg') repeat-x @l*@r @t;
+        .bgs();
+    }
+    // 一单一纯参数
+    .bgjx(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and not ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+        background: url('../../assets/images/@{name}.jpg') repeat-x @l @t*@r;
+        .bgs();
+    }
+
+        .bgjy(@name){
+            background: url('../../assets/images/@{name}.jpg') repeat-y center;
+            .bgs();
+        }
+
+        .bgjy(@name,@l) when ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+            background: url('../../assets/images/@{name}.jpg') repeat-y @l center;
+            .bgs();
+        }
+        .bgjy(@name,@l) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))){
+            background: url('../../assets/images/@{name}.jpg') repeat-y @l*@r center;
+            .bgs();
+        }
+
+        // 均非纯数字参数
+        .bgjy(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+            background: url('../../assets/images/@{name}.jpg') repeat-y @l @t;
+            .bgs();
+        }
+        // 一纯一单参数
+        .bgjy(@name,@l,@t) when not ((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t))){
+            background: url('../../assets/images/@{name}.jpg') repeat-y @l*@r @t;
+            .bgs();
+        }
+        // 一单一纯参数
+        .bgjy(@name,@l,@t) when (((ispixel(@l)) or (ispercentage(@l)) or (iskeyword(@l))) and not ((ispixel(@t)) or (ispercentage(@t)) or (iskeyword(@t)))){
+            background: url('../../assets/images/@{name}.jpg') repeat-y @l @t*@r;
+            .bgs();
+        }
+
+
+.bgc(@color:#fff){
+    background-color: @color;
+}
+.bgs(@size:100%) when ((ispixel(@size)) or (ispercentage(@size)) or (iskeyword(@size))){
+    background-size: @size;
+}
+.bgs(@size:100%) when not ((ispixel(@size)) or (ispercentage(@size)) or (iskeyword(@size))){
+    background-size: @size*@r;
+}
+
+.bgImg(@name){
+    background-image: url('../../assets/images/@{name}.png');
+}
+.bgjImg(@name){
+    background-image: url('../../assets/images/@{name}.jpg');
+}
+
+/***** 鼠标样式 *****/
+.cr(@cursor:pointer){
+    cursor: @cursor;
+}
+
+/***** 伪元素 *****/
+.ct(@content:''){
+    content: @content;
+}

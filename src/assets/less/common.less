@@ -1,0 +1,48 @@
+@import "./library.less";
+
+body{
+  .fs(24); .bgc();
+}
+.app{
+  height: 100vh;
+}
+.user{
+  .centerB(30); .zi(1000); .wh(159,153); .brs(); .of();
+  img{
+    .wh(); .obj();
+  }
+}
+.list-icon{
+  .absRB(0,54); .zi(1000); .wh(128,79); .bg('liebiao');
+}
+.header{
+  .rel(); .h(127); .tc(); .fs(36); background:linear-gradient(76deg,rgba(101,212,255,1) 0%,rgba(52,141,255,1) 100%);
+  span{
+    .centerB(20); .c();
+  }
+}
+.scroll-view{
+  .rel(); .zi(100); height: calc(100vh - 127px); .ofs();
+}
+.group{
+  .pl(30); .bgc();
+  .cell{
+    .rel(); .flex(); .jc-between(); .ai-center(); .h(89); .pr(30); .bb(1,#DFDFDF);
+    &.is-link{
+      &::after{
+        .ct(); .centerR(30); .wh(15,29); .bg('dianjijinru');
+      }
+    }
+    label{
+      .fs(32); .c(#313134);
+    }
+    .text{
+      .fs(28); .c(#666666);
+    }
+    &:last-child{
+      .b();
+    }
+  }
+}
+
+

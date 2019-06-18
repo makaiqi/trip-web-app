@@ -1,0 +1,75 @@
+@import "../../assets/less/library.less";
+
+#map,
+#scenic,
+#foods{
+  height: calc(100vh - 191*@r);
+}
+
+// 景区地图
+#map{
+  .w();
+}
+
+// 景区列表
+#scenic{
+  .pb(50); .bxs();
+  li{
+    .h(246); .mt(24); .p(0,24);
+    img{
+      .wh(); .obj(); .brs(8);
+    }
+  }
+}
+
+// 美食
+#foods{
+  ul{
+    .p(0,30);
+  }
+  li{
+    .bb(1,#DFDFDF);
+    a{
+      .p(35,0); .flex();
+    }
+    img{
+      .wh(158); .mr(20); .brs(8);
+    }
+    h2{
+      .fs(32); .c(#313131); .lh();
+    }
+    .amount{
+      .flex(); .pt(30); .fs(24); .lh();
+    }
+    .stars{
+      .pl(26); .c(#FF7320);
+    }
+    .sales{
+      .pl(30); .c(#777777);
+    }
+    .bottom{
+      .flex(); .pt(30); .c(#F2493A);
+    }
+    .promotion{
+      .wh(34,33); .mr(30); .bg('cuxiao');
+    }
+    .tags{
+      .flex();
+      span{
+        .p(0,14); .lh(33*@r); .b(1px,rgba(255,140,124,1)); .fs(22); .brs(4);
+      }
+    }
+  }
+}
+
+#callout{
+  .none(); position: absolute; .flex(); .ai-center(); .wh(504,210); .p(42,30); .bxs(); .bgc(); .brs(8); .fs(40); .c(#333333);
+  .image{
+    .wh(128); .brs();
+  }
+  .text{
+    .lh(1.2);
+  }
+}
+
+

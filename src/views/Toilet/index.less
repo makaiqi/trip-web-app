@@ -1,0 +1,27 @@
+@import "../../assets/less/library.less";
+.top{
+  .rel();
+  height:200*@r;
+  background:linear-gradient(291deg,rgba(52,141,255,1) 0%,rgba(101,212,255,1) 100%);
+  .box{
+    .centerB(-122); .wh(690,258); .bxs(); .pt(50); .brs(12); .tc(); box-shadow:0 3*@r 21*@r 0 rgba(44,112,196,0.14); .bgc();
+  }
+  .icon{
+    .wh(98,89); .m(0,auto);
+  }
+  h2{
+    .pt(10); .fs(38); .c(#333);
+  }
+}
+.group{
+  .pt(130);
+  .address{
+    .fs(32); .c(#555555); border-bottom: 1px solid #DFDFDF;
+    label{
+      .pl(47); .bg('dingwei',0,center); .bgs(29);
+    }
+  }
+  .tips{
+    .mt(22); .pl(46); .fs(20); .c(#666); .bg('xinxi',0,center); .bgs(23);
+  }
+}

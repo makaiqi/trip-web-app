@@ -1,0 +1,20 @@
+@import "../../assets/less/library.less";
+.top-img{
+  .wh(100%,327); .obj();
+}
+h2{
+  .flex(); .jc-center(); .ai-center(); .h(104px); .fs(36); .c(#333333);
+  &::before,
+  &::after{
+    .ct(); .wh(58,23); background: no-repeat center; .bgs();
+  }
+  &::before{
+    .bgImg('title-left');
+  }
+  &::after{
+    .bgImg('title-right');
+  }
+  span{
+    .p(0,11);
+  }
+}

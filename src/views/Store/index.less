@@ -1,0 +1,75 @@
+@import "../../assets/less/library.less";
+.top{
+  .rel();
+  height:200*@r;
+  background:linear-gradient(80deg,rgba(101,212,255,1) 0%,rgba(52,141,255,1) 100%);
+  .box{
+    .centerB(-122); .wh(690,220); .bxs(); .brs(12); .tc(); box-shadow:0 3*@r 21*@r 0 rgba(44,112,196,0.14); .bgc();
+  }
+  .icon{
+    .wh(137); .m(-45,auto,0); .brs(14);
+  }
+  h2{
+    .pt(16); .fs(38); .c(#333); .lh();
+  }
+  p{
+    .pt(18); .fs(20); .c(#777); .lh();
+  }
+}
+.scroll-view{
+  height: calc(100vh - 274*@r - 130*@r - 92*@r * 3);
+}
+.group{
+  .pt(130); .bb(12,#EFEFF1);
+  .cell{
+    .c(#555555); border-bottom: 1*@r solid #DFDFDF;
+    label{
+      .pl(47); .bg('dingwei',0,center); .bgs(29);
+    }
+  }
+  .tel{
+    label{
+      .bgImg('dianhua'); .bgs(31);
+    }
+  }
+  .time{
+    .b();
+    label{
+      .bgImg('shijian'); .bgs(30);
+    }
+  }
+  .tips{
+    .mt(22); .pl(46); .fs(20); .c(#666); .bg('xinxi',0,center); .bgs(23);
+  }
+}
+.list{
+  .pt(36); .b();
+  h3{
+    .fs(34); .c(#333); .fw();
+  }
+  .content{
+    .item{
+      .flex(); .p(32,30,32,0); .bb(1,#DFDFDF);
+      &:last-child{
+        .b();
+      }
+      img{
+        .wh(158); .brs(8); .mr(20); flex-shrink: 0;
+      }
+      .title{
+        .fs(30); .lh(44*@r); .c(#333);
+      }
+      .bottom{
+        .flex(); .jc-between(); .pt(30);
+        .price{
+          .fs(32); .c(#F2493A);
+        }
+        .buy{
+          .wh(137,49); .c(); .fs(24); .lh(49*@r); .tc(); background:linear-gradient(270deg,rgba(52,141,255,1) 0%,rgba(101,212,255,1) 100%);
+          box-shadow:0 3*@r 11*@r 0 rgba(65,160,255,0.64);
+          border-radius:25*@r;
+        }
+      }
+    }
+  }
+}
